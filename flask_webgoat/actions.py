@@ -40,8 +40,8 @@ def log_entry():
 
 @bp.route("/grep_processes")
 def grep_processes():
-    # name = request.args.get("name")
-    name = shlex.quote(name = request.args.get("name"))
+    name = request.args.get("name")
+    # name = shlex.quote(name = request.args.get("name"))
     # vulnerability: Remote Code Execution
     res = subprocess.run(
         ["ps aux | grep " + name + " | awk '{print $11}'"],
